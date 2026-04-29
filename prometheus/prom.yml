@@ -9,6 +9,9 @@ scrape_configs:
   - job_name: 'keyslab-server'
     metrics_path: /metrics
     scheme: http
+    authorization:
+      type: Bearer
+      credentials_file: /etc/prometheus/metrics_token
     static_configs:
       - targets: ['keyslab-server.railway.internal:8080']
         labels:
